@@ -2,51 +2,411 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
- <meta name="google-site-verification" content="rbiRIDPqElCbzW1TDdx1nu9Vn8KlzaFHZvhcHNVoZMI" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="rbiRIDPqElCbzW1TDdx1nu9Vn8KlzaFHZvhcHNVoZMI" />
 <title>OYUN REHBERİ</title>
+
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;background:#090d1b;color:white;font-family:Arial,sans-serif;
- background-image:radial-gradient(circle at 15% 10%,#25205b,transparent 35%),radial-gradient(circle at 85% 80%,#142e55,transparent 35%);
- min-height:100vh
+* {
+  box-sizing: border-box;
 }
-header{text-align:center;padding:35px 15px 20px}
-header h1{font-size:38px;margin:0;color:#8c7cff;text-shadow:0 0 20px #6554ff}
-header p{color:#aab2d1}
-.controls{max-width:1100px;margin:15px auto;padding:0 15px;display:flex;gap:10px;flex-wrap:wrap}
-input,select{background:#151b31;color:white;border:1px solid #343c61;padding:13px;border-radius:10px;font-size:15px;outline:none}
-input{flex:1;min-width:180px}
-select{min-width:140px}
-#games{max-width:1100px;margin:20px auto;padding:0 15px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
-.card{background:#151b31;border:1px solid #293253;border-radius:15px;overflow:hidden;cursor:pointer;transition:.25s}
-.card:hover{transform:translateY(-7px);border-color:#8878ff;box-shadow:0 10px 30px #6554ff35}
-.cover{height:125px;background:linear-gradient(135deg,#242052,#17416b);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.cover img{width:100%;height:100%;object-fit:cover}
-.cover span{font-size:48px}
-.info{padding:13px}
-.info h3{margin:0 0 9px;font-size:18px}
-.tag{font-size:12px;color:#a9a4ff;background:#28234b;padding:5px 8px;border-radius:7px;display:inline-block}
-.platform{font-size:12px;color:#9da8c7;margin-left:5px}
-.card p{font-size:13px;color:#aab2c9;margin-bottom:0}
-#modal{display:none;position:fixed;inset:0;background:#000c;z-index:10;overflow:auto;padding:20px}
-.modalbox{max-width:650px;margin:30px auto;background:#141a30;border:1px solid #454b78;border-radius:18px;padding:22px;position:relative}
-.close{position:absolute;right:17px;top:13px;border:0;background:#302d55;color:white;padding:9px 13px;border-radius:8px;cursor:pointer}
-#detailImage{width:100%;height:190px;object-fit:cover;border-radius:12px;background:#25234c}
-#detailEmoji{font-size:60px;text-align:center;margin:10px}
-.modalbox h2{color:#a99cff}
-.modalbox p{color:#d0d5e8;line-height:1.6}
-.download{display:inline-block;background:#6c58e8;color:white;text-decoration:none;padding:12px 17px;border-radius:9px;margin:10px 0}
-textarea{width:100%;min-height:75px;background:#0c1225;color:white;border:1px solid #343c61;border-radius:10px;padding:12px;resize:vertical}
-button{cursor:pointer}
-#send{background:#6c58e8;color:white;border:0;padding:10px 16px;border-radius:8px;margin-top:8px}
-.comment{background:#202844;padding:10px;border-radius:8px;margin:8px 0;overflow-wrap:anywhere}
-footer{text-align:center;color:#7883a5;padding:30px}
-.empty{text-align:center;color:#aab2c9;grid-column:1/-1}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #080a14;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  animation: pageEnter .8s ease both;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, #ff00aa35, transparent 30%),
+    radial-gradient(circle at 80% 25%, #00eaff30, transparent 30%),
+    radial-gradient(circle at 50% 85%, #7b00ff35, transparent 35%);
+  animation: backgroundMove 16s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#ffffff06 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff06 1px, transparent 1px);
+  background-size: 45px 45px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+@keyframes backgroundMove {
+  from { transform: translate(-3%, -2%) scale(1); }
+  to { transform: translate(3%, 2%) scale(1.12); }
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  text-align: center;
+  padding: 45px 15px 25px;
+}
+
+header h1 {
+  font-size: clamp(30px, 6vw, 48px);
+  margin: 0;
+  background: linear-gradient(
+    90deg, #00eaff, #a855f7, #ff29d5, #00eaff
+  );
+  background-size: 300% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: rgbText 5s linear infinite;
+  filter: drop-shadow(0 0 12px #00d9ff65);
+}
+
+@keyframes rgbText {
+  to { background-position: 300% center; }
+}
+
+header p {
+  color: #aab2d1;
+  font-size: 15px;
+}
+
+.controls {
+  max-width: 1100px;
+  margin: 15px auto;
+  padding: 0 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+input, select {
+  background: #151b31;
+  color: white;
+  border: 1px solid #343c61;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: .25s;
+}
+
+input:focus, select:focus {
+  border-color: #00eaff;
+  box-shadow: 0 0 14px #00eaff45;
+}
+
+input {
+  flex: 1;
+  min-width: 180px;
+}
+
+select {
+  min-width: 140px;
+}
+
+#games {
+  max-width: 1100px;
+  margin: 25px auto;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(145deg, #171b30, #101426);
+  border: 1px solid #343253;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+  animation: cardEnter .65s both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card:hover {
+  transform: translateY(-9px) scale(1.025);
+  border-color: #00eaff;
+  box-shadow:
+    0 0 12px #00eaff55,
+    0 0 25px #a855f755,
+    0 12px 30px #0009;
+}
+
+.cover {
+  height: 125px;
+  background: linear-gradient(135deg, #242052, #17416b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.card:hover .cover img {
+  transform: scale(1.09);
+}
+
+.cover span {
+  font-size: 48px;
+}
+
+.info {
+  padding: 13px;
+}
+
+.info h3 {
+  margin: 0 0 9px;
+  font-size: 18px;
+}
+
+.tag {
+  font-size: 12px;
+  color: #00eaff;
+  background: #123447;
+  padding: 5px 8px;
+  border-radius: 7px;
+  display: inline-block;
+}
+
+.platform {
+  font-size: 12px;
+  color: #b3a2ff;
+  margin-left: 5px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #aab2c9;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000c;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+  overflow: auto;
+  padding: 20px;
+}
+
+#modal.open {
+  display: block;
+  animation: modalFade .3s ease both;
+}
+
+@keyframes modalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalbox {
+  max-width: 650px;
+  margin: 30px auto;
+  background: #141a30;
+  border: 1px solid #594b87;
+  border-radius: 18px;
+  padding: 22px;
+  position: relative;
+  box-shadow: 0 0 35px #8b5cf755;
+  animation: modalSlide .35s ease both;
+}
+
+@keyframes modalSlide {
+  from { transform: translateY(25px) scale(.96); }
+  to { transform: translateY(0) scale(1); }
+}
+
+.close {
+  position: absolute;
+  right: 17px;
+  top: 13px;
+  border: 0;
+  background: #302d55;
+  color: white;
+  padding: 9px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.close:hover {
+  background: #ff299d;
+}
+
+#detailImage {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #25234c;
+}
+
+#detailEmoji {
+  font-size: 60px;
+  text-align: center;
+  margin: 10px;
+}
+
+.modalbox h2 {
+  color: #00eaff;
+}
+
+.modalbox p {
+  color: #d0d5e8;
+  line-height: 1.6;
+}
+
+.download {
+  display: inline-block;
+  background: linear-gradient(90deg, #00bde9, #854dff, #ec32bc);
+  background-size: 200% auto;
+  color: white;
+  text-decoration: none;
+  padding: 12px 17px;
+  border-radius: 9px;
+  margin: 10px 0;
+  transition: .3s;
+}
+
+.download:hover {
+  background-position: right center;
+  box-shadow: 0 0 20px #a855f788;
+  transform: translateY(-3px);
+}
+
+textarea {
+  width: 100%;
+  min-height: 75px;
+  background: #0c1225;
+  color: white;
+  border: 1px solid #343c61;
+  border-radius: 10px;
+  padding: 12px;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #00eaff;
+}
+
+button {
+  cursor: pointer;
+}
+
+#send {
+  background: linear-gradient(90deg, #00bde9, #854dff);
+  color: white;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-top: 8px;
+  transition: .25s;
+}
+
+#send:hover {
+  box-shadow: 0 0 15px #00eaff77;
+  transform: translateY(-2px);
+}
+
+.comment {
+  background: #202844;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  text-align: center;
+  color: #7883a5;
+  padding: 30px;
+  border-top: 1px solid #ffffff12;
+}
+
+.empty {
+  text-align: center;
+  color: #aab2c9;
+  grid-column: 1/-1;
+}
+
+@media(max-width:600px) {
+  #games {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+  }
+
+  .cover {
+    height: 105px;
+  }
+
+  .info h3 {
+    font-size: 15px;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  input, select {
+    width: 100%;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -102,7 +462,7 @@ footer{text-align:center;color:#7883a5;padding:30px}
 <footer>OYUN REHBERİ • Oyun keşfetmenin kolay yolu 🎮</footer>
 
 <script>
-const games=[
+const games = [
 {name:"VALORANT",platform:"PC",genre:"FPS",emoji:"🎯",size:"Değişken",image:"https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/8cbd6a6c7f9c6c8d9f6e4f0b7c1e4f4e2f0f2a7f-1920x1080.jpg",url:"https://playvalorant.com/tr-tr/",desc:"Rekabetçi taktiksel nişancı oyunu.",how:"Ajanının yeteneklerini kullan ve takımınla hedefleri tamamla."},
 {name:"League of Legends",platform:"PC",genre:"Strateji",emoji:"⚔️",size:"Değişken",url:"https://www.leagueoflegends.com/tr-tr/",desc:"Takım tabanlı MOBA oyunu.",how:"Takım arkadaşlarınla haritada ilerle ve rakip yapıları yok et."},
 {name:"Teamfight Tactics",platform:"PC",genre:"Strateji",emoji:"♟️",size:"Değişken",url:"https://teamfighttactics.leagueoflegends.com/",desc:"Otomatik savaşlara dayanan strateji oyunu.",how:"Şampiyonlarını seç ve takımını kur."},
@@ -150,88 +510,176 @@ const games=[
 {name:"Block Blast",platform:"Mobil",genre:"Bulmaca",emoji:"🧩",size:"Değişken",url:"https://hungry-studio.com/",desc:"Blok yerleştirme bulmacası.",how:"Satır ve sütunları tamamla."}
 ];
 
-function imageUrl(g){
- if(g.image)return g.image;
- if(g.app)return "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/"+g.app+"/header.jpg";
- return "";
+function imageUrl(g) {
+  if (g.image) return g.image;
+  if (g.app) return "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/" + g.app + "/header.jpg";
+  return "";
 }
 
-function showGames(){
- const q=document.getElementById("search").value.toLowerCase();
- const p=document.getElementById("platform").value;
- const genre=document.getElementById("genre").value;
- const box=document.getElementById("games");
- box.innerHTML="";
- const filtered=games.filter(g=>g.name.toLowerCase().includes(q)&&(p==="Hepsi"||g.platform===p)&&(genre==="Hepsi"||g.genre===genre));
- if(!filtered.length){box.innerHTML='<div class="empty">Oyun bulunamadı 😕</div>';return;}
- filtered.forEach(g=>{
-  const card=document.createElement("div");card.className="card";
-  const cover=document.createElement("div");cover.className="cover";
-  const emoji=document.createElement("span");emoji.textContent=g.emoji;
-  cover.appendChild(emoji);
-  const src=imageUrl(g);
-  if(src){
-   const img=document.createElement("img");
-   img.alt=g.name+" kapak resmi";
-   img.src=src;
-   img.onload=()=>{emoji.style.display="none";};
-   img.onerror=()=>{img.remove();emoji.style.display="inline";};
-   cover.appendChild(img);
+function showGames() {
+  const q = document.getElementById("search").value.toLowerCase();
+  const p = document.getElementById("platform").value;
+  const genre = document.getElementById("genre").value;
+  const box = document.getElementById("games");
+
+  box.innerHTML = "";
+
+  const filtered = games.filter(g =>
+    g.name.toLowerCase().includes(q) &&
+    (p === "Hepsi" || g.platform === p) &&
+    (genre === "Hepsi" || g.genre === genre)
+  );
+
+  if (!filtered.length) {
+    box.innerHTML = '<div class="empty">Oyun bulunamadı 😕</div>';
+    return;
   }
-  const info=document.createElement("div");info.className="info";
-  const h=document.createElement("h3");h.textContent=g.name;
-  const tag=document.createElement("span");tag.className="tag";tag.textContent=g.genre;
-  const platform=document.createElement("span");platform.className="platform";platform.textContent=g.platform;
-  const desc=document.createElement("p");desc.textContent=g.desc;
-  info.append(h,tag,platform,desc);card.append(cover,info);
-  card.onclick=()=>openModal(g);box.appendChild(card);
- });
+
+  filtered.forEach((g, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.setProperty("--i", index);
+
+    const cover = document.createElement("div");
+    cover.className = "cover";
+
+    const emoji = document.createElement("span");
+    emoji.textContent = g.emoji;
+    cover.appendChild(emoji);
+
+    const src = imageUrl(g);
+
+    if (src) {
+      const img = document.createElement("img");
+      img.alt = g.name + " kapak resmi";
+      img.src = src;
+      img.onload = () => emoji.style.display = "none";
+      img.onerror = () => {
+        img.remove();
+        emoji.style.display = "inline";
+      };
+      cover.appendChild(img);
+    }
+
+    const info = document.createElement("div");
+    info.className = "info";
+
+    const h = document.createElement("h3");
+    h.textContent = g.name;
+
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = g.genre;
+
+    const platform = document.createElement("span");
+    platform.className = "platform";
+    platform.textContent = g.platform;
+
+    const desc = document.createElement("p");
+    desc.textContent = g.desc;
+
+    info.append(h, tag, platform, desc);
+    card.append(cover, info);
+
+    card.onclick = () => openModal(g);
+    box.appendChild(card);
+  });
 }
 
-function openModal(g){
- document.getElementById("modal").style.display="block";
- document.getElementById("detailName").textContent=g.name;
- document.getElementById("detailTags").textContent=g.platform+" • "+g.genre;
- document.getElementById("detailDescription").textContent=g.desc;
- document.getElementById("detailSize").textContent=g.size;
- document.getElementById("detailHow").textContent=g.how;
- document.getElementById("detailEmoji").textContent=g.emoji;
- const img=document.getElementById("detailImage");
- const src=imageUrl(g);
- img.style.display="none";
- if(src){
-  img.onload=()=>{img.style.display="block";document.getElementById("detailEmoji").style.display="none";};
-  img.onerror=()=>{img.style.display="none";document.getElementById("detailEmoji").style.display="block";};
-  img.src=src;
- }else{
-  document.getElementById("detailEmoji").style.display="block";
- }
- document.getElementById("download").href=g.url;
- window.selectedGame=g.name;
- document.getElementById("commentInput").value="";
- showComments();
+function openModal(g) {
+  const modal = document.getElementById("modal");
+  modal.classList.remove("open");
+  void modal.offsetWidth;
+  modal.classList.add("open");
+
+  document.getElementById("detailName").textContent = g.name;
+  document.getElementById("detailTags").textContent = g.platform + " • " + g.genre;
+  document.getElementById("detailDescription").textContent = g.desc;
+  document.getElementById("detailSize").textContent = g.size;
+  document.getElementById("detailHow").textContent = g.how;
+  document.getElementById("detailEmoji").textContent = g.emoji;
+
+  const img = document.getElementById("detailImage");
+  const emoji = document.getElementById("detailEmoji");
+  const src = imageUrl(g);
+
+  img.style.display = "none";
+  emoji.style.display = "block";
+
+  if (src) {
+    img.onload = () => {
+      img.style.display = "block";
+      emoji.style.display = "none";
+    };
+
+    img.onerror = () => {
+      img.style.display = "none";
+      emoji.style.display = "block";
+    };
+
+    img.src = src;
+  }
+
+  document.getElementById("download").href = g.url;
+  window.selectedGame = g.name;
+  document.getElementById("commentInput").value = "";
+  showComments();
 }
-function closeModal(){document.getElementById("modal").style.display="none";}
-function showComments(){
- const box=document.getElementById("comments");box.innerHTML="";
- const data=JSON.parse(localStorage.getItem("oyunYorumlari")||"{}");
- const list=data[window.selectedGame]||[];
- if(!list.length)box.innerHTML='<p style="color:#8994b5">Henüz yorum yok. İlk yorumu sen yaz!</p>';
- list.forEach(c=>{const d=document.createElement("div");d.className="comment";d.textContent="💬 "+c;box.appendChild(d);});
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("open");
 }
-function addComment(){
- const input=document.getElementById("commentInput");
- const value=input.value.trim();if(!value)return;
- const data=JSON.parse(localStorage.getItem("oyunYorumlari")||"{}");
- if(!data[window.selectedGame])data[window.selectedGame]=[];
- data[window.selectedGame].push(value);
- localStorage.setItem("oyunYorumlari",JSON.stringify(data));
- input.value="";showComments();
+
+function showComments() {
+  const box = document.getElementById("comments");
+  box.innerHTML = "";
+
+  const data = JSON.parse(localStorage.getItem("oyunYorumlari") || "{}");
+  const list = data[window.selectedGame] || [];
+
+  if (!list.length) {
+    box.innerHTML = '<p style="color:#8994b5">Henüz yorum yok. İlk yorumu sen yaz!</p>';
+  }
+
+  list.forEach(c => {
+    const d = document.createElement("div");
+    d.className = "comment";
+    d.textContent = "💬 " + c;
+    box.appendChild(d);
+  });
 }
-document.getElementById("search").addEventListener("input",showGames);
-document.getElementById("platform").addEventListener("change",showGames);
-document.getElementById("genre").addEventListener("change",showGames);
-document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal();});
+
+function addComment() {
+  const input = document.getElementById("commentInput");
+  const value = input.value.trim();
+
+  if (!value) return;
+
+  const data = JSON.parse(localStorage.getItem("oyunYorumlari") || "{}");
+
+  if (!data[window.selectedGame]) {
+    data[window.selectedGame] = [];
+  }
+
+  data[window.selectedGame].push(value);
+  localStorage.setItem("oyunYorumlari", JSON.stringify(data));
+
+  input.value = "";
+  showComments();
+}
+
+document.getElementById("search").addEventListener("input", showGames);
+document.getElementById("platform").addEventListener("change", showGames);
+document.getElementById("genre").addEventListener("change", showGames);
+
+document.getElementById("modal").addEventListener("click", e => {
+  if (e.target.id === "modal") closeModal();
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeModal();
+});
+
 showGames();
 </script>
 </body>
