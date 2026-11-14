@@ -8,9 +8,7 @@
 <title>OYUN REHBERİ</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -20,19 +18,22 @@ body {
   font-family: Arial, sans-serif;
   overflow-x: hidden;
   animation: pageEnter .8s ease both;
+  isolation: isolate;
 }
 
+/* HAREKETLİ RGB ARKA PLAN */
 body::before {
   content: "";
   position: fixed;
-  inset: -50%;
+  inset: -30%;
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(circle at 20% 30%, #ff00aa35, transparent 30%),
-    radial-gradient(circle at 80% 25%, #00eaff30, transparent 30%),
-    radial-gradient(circle at 50% 85%, #7b00ff35, transparent 35%);
-  animation: backgroundMove 16s ease-in-out infinite alternate;
+    radial-gradient(ellipse at 50% 0%, #ff003b70, transparent 42%),
+    radial-gradient(ellipse at 15% 50%, #a000ff65, transparent 43%),
+    radial-gradient(ellipse at 85% 100%, #005aff75, transparent 45%);
+  filter: blur(65px);
+  animation: rgbFlow 9s ease-in-out infinite alternate;
 }
 
 body::after {
@@ -48,9 +49,19 @@ body::after {
   mask-image: linear-gradient(to bottom, black, transparent 85%);
 }
 
-@keyframes backgroundMove {
-  from { transform: translate(-3%, -2%) scale(1); }
-  to { transform: translate(3%, 2%) scale(1.12); }
+@keyframes rgbFlow {
+  0% {
+    transform: translateY(-12%) translateX(-5%) scale(1);
+    filter: blur(65px) hue-rotate(0deg);
+  }
+  50% {
+    transform: translateY(0%) translateX(4%) scale(1.12);
+    filter: blur(75px) hue-rotate(35deg);
+  }
+  100% {
+    transform: translateY(12%) translateX(-3%) scale(1.05);
+    filter: blur(65px) hue-rotate(70deg);
+  }
 }
 
 @keyframes pageEnter {
@@ -66,9 +77,7 @@ header {
 header h1 {
   font-size: clamp(30px, 6vw, 48px);
   margin: 0;
-  background: linear-gradient(
-    90deg, #00eaff, #a855f7, #ff29d5, #00eaff
-  );
+  background: linear-gradient(90deg, #00eaff, #a855f7, #ff29d5, #00eaff);
   background-size: 300% auto;
   color: transparent;
   background-clip: text;
@@ -111,14 +120,8 @@ input:focus, select:focus {
   box-shadow: 0 0 14px #00eaff45;
 }
 
-input {
-  flex: 1;
-  min-width: 180px;
-}
-
-select {
-  min-width: 140px;
-}
+input { flex: 1; min-width: 180px; }
+select { min-width: 140px; }
 
 #games {
   max-width: 1100px;
@@ -136,32 +139,20 @@ select {
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    border-color .35s ease;
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
   animation: cardEnter .65s both;
   animation-delay: calc(var(--i, 0) * 45ms);
 }
 
 @keyframes cardEnter {
-  from {
-    opacity: 0;
-    transform: translateY(25px) scale(.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(25px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .card:hover {
   transform: translateY(-9px) scale(1.025);
   border-color: #00eaff;
-  box-shadow:
-    0 0 12px #00eaff55,
-    0 0 25px #a855f755,
-    0 12px 30px #0009;
+  box-shadow: 0 0 12px #00eaff55, 0 0 25px #a855f755, 0 12px 30px #0009;
 }
 
 .cover {
@@ -180,22 +171,11 @@ select {
   transition: transform .5s ease;
 }
 
-.card:hover .cover img {
-  transform: scale(1.09);
-}
+.card:hover .cover img { transform: scale(1.09); }
+.cover span { font-size: 48px; }
 
-.cover span {
-  font-size: 48px;
-}
-
-.info {
-  padding: 13px;
-}
-
-.info h3 {
-  margin: 0 0 9px;
-  font-size: 18px;
-}
+.info { padding: 13px; }
+.info h3 { margin: 0 0 9px; font-size: 18px; }
 
 .tag {
   font-size: 12px;
@@ -269,9 +249,7 @@ select {
   cursor: pointer;
 }
 
-.close:hover {
-  background: #ff299d;
-}
+.close:hover { background: #ff299d; }
 
 #detailImage {
   width: 100%;
@@ -287,14 +265,8 @@ select {
   margin: 10px;
 }
 
-.modalbox h2 {
-  color: #00eaff;
-}
-
-.modalbox p {
-  color: #d0d5e8;
-  line-height: 1.6;
-}
+.modalbox h2 { color: #00eaff; }
+.modalbox p { color: #d0d5e8; line-height: 1.6; }
 
 .download {
   display: inline-block;
@@ -325,14 +297,8 @@ textarea {
   resize: vertical;
 }
 
-textarea:focus {
-  outline: none;
-  border-color: #00eaff;
-}
-
-button {
-  cursor: pointer;
-}
+textarea:focus { outline: none; border-color: #00eaff; }
+button { cursor: pointer; }
 
 #send {
   background: linear-gradient(90deg, #00bde9, #854dff);
@@ -375,26 +341,11 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
-
-  .card:hover {
-    transform: translateY(-4px);
-  }
-
-  .cover {
-    height: 105px;
-  }
-
-  .info h3 {
-    font-size: 15px;
-  }
-
-  .controls {
-    flex-direction: column;
-  }
-
-  input, select {
-    width: 100%;
-  }
+  .card:hover { transform: translateY(-4px); }
+  .cover { height: 105px; }
+  .info h3 { font-size: 15px; }
+  .controls { flex-direction: column; }
+  input, select { width: 100%; }
 }
 
 @media(prefers-reduced-motion: reduce) {
@@ -408,7 +359,6 @@ footer {
 </head>
 
 <body>
-
 <header>
 <h1>🎮 OYUN REHBERİ</h1>
 <p>Oyunları keşfet, bilgilerini öğren ve yorumlarını paylaş!</p>
@@ -521,7 +471,6 @@ function showGames() {
   const p = document.getElementById("platform").value;
   const genre = document.getElementById("genre").value;
   const box = document.getElementById("games");
-
   box.innerHTML = "";
 
   const filtered = games.filter(g =>
@@ -548,7 +497,6 @@ function showGames() {
     cover.appendChild(emoji);
 
     const src = imageUrl(g);
-
     if (src) {
       const img = document.createElement("img");
       img.alt = g.name + " kapak resmi";
@@ -580,7 +528,6 @@ function showGames() {
 
     info.append(h, tag, platform, desc);
     card.append(cover, info);
-
     card.onclick = () => openModal(g);
     box.appendChild(card);
   });
@@ -611,12 +558,10 @@ function openModal(g) {
       img.style.display = "block";
       emoji.style.display = "none";
     };
-
     img.onerror = () => {
       img.style.display = "none";
       emoji.style.display = "block";
     };
-
     img.src = src;
   }
 
@@ -633,7 +578,6 @@ function closeModal() {
 function showComments() {
   const box = document.getElementById("comments");
   box.innerHTML = "";
-
   const data = JSON.parse(localStorage.getItem("oyunYorumlari") || "{}");
   const list = data[window.selectedGame] || [];
 
@@ -652,18 +596,13 @@ function showComments() {
 function addComment() {
   const input = document.getElementById("commentInput");
   const value = input.value.trim();
-
   if (!value) return;
 
   const data = JSON.parse(localStorage.getItem("oyunYorumlari") || "{}");
-
-  if (!data[window.selectedGame]) {
-    data[window.selectedGame] = [];
-  }
+  if (!data[window.selectedGame]) data[window.selectedGame] = [];
 
   data[window.selectedGame].push(value);
   localStorage.setItem("oyunYorumlari", JSON.stringify(data));
-
   input.value = "";
   showComments();
 }
