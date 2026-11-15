@@ -493,5 +493,30 @@ if(e.key==="Escape")closeModal();
 
 showGames();
 </script>
+  <script>
+document.addEventListener("click", function(e) {
+  if (!e.target.matches(".game-card img")) return;
+
+  e.stopPropagation();
+
+  const overlay = document.createElement("div");
+  overlay.style.cssText = `
+    position:fixed; inset:0; background:rgba(0,0,0,.92);
+    display:flex; align-items:center; justify-content:center;
+    z-index:999999; cursor:zoom-out;
+  `;
+
+  const img = document.createElement("img");
+  img.src = e.target.src;
+  img.style.cssText = `
+    max-width:90%; max-height:90%; object-fit:contain;
+    border-radius:15px; box-shadow:0 0 30px #8b00ff;
+  `;
+
+  overlay.appendChild(img);
+  overlay.onclick = () => overlay.remove();
+  document.body.appendChild(overlay);
+});
+</script>
 </body>
 </html>
