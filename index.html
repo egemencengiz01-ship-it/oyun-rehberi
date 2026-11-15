@@ -5,69 +5,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="rbiRIDPqElCbzW1TDdx1nu9Vn8KlzaFHZvhcHNVoZMI">
+<meta name="description" content="OYUN REHBERİ ile PC ve mobil oyunları keşfet! Oyun incelemeleri, fiyatlar, sistem bilgileri ve resmî indirme bağlantıları.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="OYUN REHBERİ">
+<meta property="og:description" content="PC ve mobil oyunları keşfet, incele ve puanla!">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://egemencengiz01-ship-it.github.io/oyun-rehberi/">
 <title>OYUN REHBERİ</title>
 
 <style>
 *{box-sizing:border-box}
-body{
-margin:0;min-height:100vh;background:#080a14;color:white;
-font-family:Arial,sans-serif;overflow-x:hidden;position:relative;isolation:isolate
-}
-body:before{
-content:"";position:fixed;inset:-30%;z-index:-2;pointer-events:none;
-background:
-linear-gradient(180deg,transparent,#ff003b99,transparent),
-linear-gradient(180deg,transparent,#a000ff99,transparent),
-linear-gradient(180deg,transparent,#005affaa,transparent);
-background-size:34% 180%,38% 180%,34% 180%;
-background-position:0 0,50% 100%,100% 0;
-background-repeat:no-repeat;filter:blur(50px);
-animation:flow 8s ease-in-out infinite alternate
-}
-body:after{
-content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-background-image:linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px);
-background-size:45px 45px
-}
+body{margin:0;min-height:100vh;background:#080a14;color:white;font-family:Arial,sans-serif;overflow-x:hidden;position:relative;isolation:isolate}
+body:before{content:"";position:fixed;inset:-30%;z-index:-2;pointer-events:none;background:linear-gradient(180deg,transparent,#ff003b99,transparent),linear-gradient(180deg,transparent,#a000ff99,transparent),linear-gradient(180deg,transparent,#005affaa,transparent);background-size:34% 180%,38% 180%,34% 180%;background-position:0 0,50% 100%,100% 0;background-repeat:no-repeat;filter:blur(50px);animation:flow 8s ease-in-out infinite alternate}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px);background-size:45px 45px}
 @keyframes flow{to{transform:translateY(20%);background-position:0 100%,50% 0,100% 100%}}
 header{text-align:center;padding:42px 15px 22px}
-header h1{
-font-size:clamp(30px,6vw,48px);margin:0;
-background:linear-gradient(90deg,#00eaff,#a855f7,#ff29d5,#00eaff);
-background-size:300%;color:transparent;background-clip:text;
--webkit-background-clip:text;animation:shine 5s linear infinite
-}
+header h1{font-size:clamp(30px,6vw,48px);margin:0;background:linear-gradient(90deg,#00eaff,#a855f7,#ff29d5,#00eaff);background-size:300%;color:transparent;background-clip:text;-webkit-background-clip:text;animation:shine 5s linear infinite}
 @keyframes shine{to{background-position:300%}}
 header p{color:#aab2d1}
-.controls{
-max-width:1100px;margin:15px auto;padding:0 15px;
-display:flex;gap:10px;flex-wrap:wrap
-}
-input,select{
-background:#151b31;color:white;border:1px solid #343c61;
-padding:13px;border-radius:10px;font-size:15px;outline:none
-}
+.controls{max-width:1100px;margin:15px auto;padding:0 15px;display:flex;gap:10px;flex-wrap:wrap}
+input,select{background:#151b31;color:white;border:1px solid #343c61;padding:13px;border-radius:10px;font-size:15px;outline:none}
 input{flex:1;min-width:180px}
 select{min-width:140px}
 input:focus,select:focus{border-color:#00eaff;box-shadow:0 0 12px #00eaff55}
-#games{
-max-width:1100px;margin:25px auto;padding:0 15px;
-display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px
-}
-.card{
-background:linear-gradient(145deg,#171b30,#101426);
-border:1px solid #343253;border-radius:15px;overflow:hidden;
-cursor:pointer;transition:.3s;animation:appear .5s both
-}
+#games{max-width:1100px;margin:25px auto;padding:0 15px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px}
+.card{background:linear-gradient(145deg,#171b30,#101426);border:1px solid #343253;border-radius:15px;overflow:hidden;cursor:pointer;transition:.3s;animation:appear .5s both}
 @keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-.card:hover{
-transform:translateY(-8px);border-color:#00eaff;
-box-shadow:0 0 20px #00eaff55,0 0 25px #a855f755
-}
-.cover{
-height:125px;background:linear-gradient(135deg,#242052,#17416b);
-display:flex;align-items:center;justify-content:center;overflow:hidden
-}
+.card:hover{transform:translateY(-8px);border-color:#00eaff;box-shadow:0 0 20px #00eaff55,0 0 25px #a855f755}
+.cover{height:125px;background:linear-gradient(135deg,#242052,#17416b);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .cover img{width:100%;height:100%;object-fit:cover}
 .cover span{font-size:48px}
 .info{padding:13px}
@@ -76,65 +41,34 @@ display:flex;align-items:center;justify-content:center;overflow:hidden
 .platform{font-size:12px;color:#b3a2ff;margin-left:5px}
 .card p{font-size:13px;color:#aab2c9;line-height:1.5}
 .cardRating{color:#ffd45c;font-size:14px;margin-top:8px}
-#modal{
-display:none;position:fixed;inset:0;background:#000d;
-backdrop-filter:blur(8px);z-index:10;overflow:auto;padding:15px
-}
+#modal{display:none;position:fixed;inset:0;background:#000d;backdrop-filter:blur(8px);z-index:10;overflow:auto;padding:15px}
 #modal.open{display:block}
-.modalbox{
-max-width:720px;margin:25px auto;background:#141a30;
-border:1px solid #594b87;border-radius:18px;padding:22px;
-position:relative;box-shadow:0 0 35px #8b5cf755
-}
-.close{
-position:absolute;right:15px;top:13px;border:0;
-background:#302d55;color:white;padding:9px 13px;border-radius:8px
-}
+.modalbox{max-width:720px;margin:25px auto;background:#141a30;border:1px solid #594b87;border-radius:18px;padding:22px;position:relative;box-shadow:0 0 35px #8b5cf755}
+.close{position:absolute;right:15px;top:13px;border:0;background:#302d55;color:white;padding:9px 13px;border-radius:8px;cursor:pointer}
 .close:hover{background:#ff299d}
-#detailImage{width:100%;height:200px;object-fit:cover;border-radius:12px}
+#detailImage{width:100%;height:200px;object-fit:cover;border-radius:12px;cursor:zoom-in}
 #detailEmoji{text-align:center;font-size:55px;margin:10px}
 .modalbox h2{color:#00eaff}
 .modalbox p{color:#d0d5e8;line-height:1.6}
-.details{
-display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-gap:10px;margin:18px 0
-}
-.detailItem{
-background:#202844;border:1px solid #343c61;
-padding:12px;border-radius:10px;min-width:0
-}
+.details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}
+.detailItem{background:#202844;border:1px solid #343c61;padding:12px;border-radius:10px;min-width:0}
 .detailItem small{display:block;color:#9ba8ca;margin-bottom:6px}
 .detailItem strong{font-size:14px;overflow-wrap:anywhere}
-.download,.action{
-display:inline-block;background:linear-gradient(90deg,#00bde9,#854dff,#ec32bc);
-color:white;text-decoration:none;padding:12px 17px;border-radius:9px;margin:8px 5px 8px 0;border:0
-}
+.download,.action{display:inline-block;background:linear-gradient(90deg,#00bde9,#854dff,#ec32bc);color:white;text-decoration:none;padding:12px 17px;border-radius:9px;margin:8px 5px 8px 0;border:0}
 .download:hover,.action:hover{box-shadow:0 0 18px #00eaff77}
 .stars{display:flex;gap:5px;margin:10px 0}
-.star{
-font-size:30px;background:none;border:0;color:#5a607a;padding:0;cursor:pointer
-}
+.star{font-size:30px;background:none;border:0;color:#5a607a;padding:0;cursor:pointer}
 .star.active{color:#ffd45c}
 .ratingText{color:#ffd45c;font-size:14px}
-textarea{
-width:100%;min-height:75px;background:#0c1225;color:white;
-border:1px solid #343c61;border-radius:10px;padding:12px;resize:vertical
-}
-#send{
-background:linear-gradient(90deg,#00bde9,#854dff);color:white;border:0;
-padding:10px 16px;border-radius:8px;margin-top:8px
-}
+textarea{width:100%;min-height:75px;background:#0c1225;color:white;border:1px solid #343c61;border-radius:10px;padding:12px;resize:vertical}
+#send{background:linear-gradient(90deg,#00bde9,#854dff);color:white;border:0;padding:10px 16px;border-radius:8px;margin-top:8px;cursor:pointer}
 .comment{background:#202844;padding:10px;border-radius:8px;margin:8px 0;overflow-wrap:anywhere}
 .empty{text-align:center;color:#aab2c9;grid-column:1/-1}
 footer{text-align:center;color:#7883a5;padding:30px}
-@media(max-width:600px){
-#games{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.cover{height:100px}
-.info h3{font-size:15px}
-.controls{flex-direction:column}
-input,select{width:100%}
-.details{grid-template-columns:1fr}
-}
+#imageZoom{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:999999;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+#imageZoom.open{display:flex}
+#imageZoom img{max-width:95%;max-height:95%;object-fit:contain;border-radius:12px;box-shadow:0 0 30px #8b00ff}
+@media(max-width:600px){#games{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.cover{height:100px}.info h3{font-size:15px}.controls{flex-direction:column}input,select{width:100%}.details{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -153,16 +87,9 @@ input,select{width:100%}
 </select>
 <select id="genre">
 <option value="Hepsi">Tüm türler</option>
-<option>FPS</option>
-<option>Aksiyon</option>
-<option>Hayatta Kalma</option>
-<option>Simülasyon</option>
-<option>Yarış</option>
-<option>Strateji</option>
-<option>Korku</option>
-<option>Macera</option>
-<option>Bulmaca</option>
-<option>Spor</option>
+<option>FPS</option><option>Aksiyon</option><option>Hayatta Kalma</option>
+<option>Simülasyon</option><option>Yarış</option><option>Strateji</option>
+<option>Korku</option><option>Macera</option><option>Bulmaca</option><option>Spor</option>
 </select>
 </div>
 
@@ -172,21 +99,17 @@ input,select{width:100%}
 <div class="modalbox">
 <button class="close" onclick="closeModal()">✕</button>
 <div id="detailEmoji"></div>
-<img id="detailImage" style="display:none">
+<img id="detailImage" style="display:none" alt="Oyun görseli" onclick="zoomImage()">
 <h2 id="detailName"></h2>
 <p id="detailDescription"></p>
-
 <div class="details" id="details"></div>
-
 <h3>⭐ Oyunu puanla</h3>
 <div class="stars" id="starButtons"></div>
 <div class="ratingText" id="ratingText"></div>
-
 <hr style="border-color:#343c61;margin:20px 0">
 <h3>🎮 Oyun hakkında</h3>
 <p id="detailHow"></p>
 <a id="download" class="download" target="_blank" rel="noopener">⬇ Resmî oyun sayfası</a>
-
 <hr style="border-color:#343c61;margin:20px 0">
 <h3>💬 Yorumlar</h3>
 <div id="comments"></div>
@@ -194,6 +117,10 @@ input,select{width:100%}
 <button id="send" onclick="addComment()">Yorum gönder</button>
 <p style="font-size:11px;color:#8994b5">Puanlar ve yorumlar bu tarayıcıda saklanır.</p>
 </div>
+</div>
+
+<div id="imageZoom" onclick="closeZoom()">
+<img id="zoomedImage" alt="Büyütülmüş oyun görseli">
 </div>
 
 <footer>OYUN REHBERİ • Oyun keşfetmenin kolay yolu 🎮</footer>
@@ -247,29 +174,17 @@ const games=[
 ["Block Blast","Mobil","Bulmaca","🧩","Hungry Studio","2022","Ücretsiz (uygulama içi satın alma)","Çevrim dışı oynanabilir","Tek oyunculu","Blokları yerleştirerek satır ve sütunları tamamla.","https://hungry-studio.com/","Cihaza göre değişir","Android / iOS"]
 ];
 
-const gamesData=games.map(g=>({
-name:g[0],platform:g[1],genre:g[2],emoji:g[3],developer:g[4],
-release:g[5],price:g[6],mode:g[7],players:g[8],desc:g[9],
-url:g[10],size:g[11],system:g[12]
-}));
-
+const gamesData=games.map(g=>({name:g[0],platform:g[1],genre:g[2],emoji:g[3],developer:g[4],release:g[5],price:g[6],mode:g[7],players:g[8],desc:g[9],url:g[10],size:g[11],system:g[12]}));
 const imageCache=new Map();
 
 function getRating(name){
 const ratings=JSON.parse(localStorage.getItem("oyunPuanlari")||"{}");
 const list=ratings[name]||[];
 if(!list.length)return {average:0,count:0};
-return {
-average:list.reduce((a,b)=>a+b,0)/list.length,
-count:list.length
-};
+return {average:list.reduce((a,b)=>a+b,0)/list.length,count:list.length};
 }
 
-function imageUrl(g){
-if(g.image)return g.image;
-if(g.app)return "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/"+g.app+"/header.jpg";
-return "";
-}
+function imageUrl(g){if(g.image)return g.image;if(g.app)return "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/"+g.app+"/header.jpg";return "";}
 
 async function findGameImage(g){
 if(imageCache.has(g.name))return imageCache.get(g.name);
@@ -281,30 +196,19 @@ const image=data.thumbnail?.source||"";
 imageCache.set(g.name,image);
 if(image)g.image=image;
 return image;
-}catch(e){
-imageCache.set(g.name,"");
-return "";
-}
+}catch(e){imageCache.set(g.name,"");return "";}
 }
 
 function loadImage(img,emoji,g){
 let src=imageUrl(g);
 if(src){
 img.onload=()=>{img.style.display="block";emoji.style.display="none"};
-img.onerror=async()=>{
-img.style.display="none";
-const found=await findGameImage(g);
-if(found&&found!==src)img.src=found;
-else emoji.style.display="inline";
-};
+img.onerror=async()=>{img.style.display="none";const found=await findGameImage(g);if(found&&found!==src)img.src=found;else emoji.style.display="inline"};
 img.src=src;
 }else{
 findGameImage(g).then(found=>{
-if(found){
-img.onload=()=>{img.style.display="block";emoji.style.display="none"};
-img.onerror=()=>{img.style.display="none";emoji.style.display="inline"};
-img.src=found;
-}else emoji.style.display="inline";
+if(found){img.onload=()=>{img.style.display="block";emoji.style.display="none"};img.onerror=()=>{img.style.display="none";emoji.style.display="inline"};img.src=found;}
+else emoji.style.display="inline";
 });
 }
 }
@@ -315,56 +219,22 @@ const p=document.getElementById("platform").value;
 const genre=document.getElementById("genre").value;
 const box=document.getElementById("games");
 box.innerHTML="";
-
-const filtered=gamesData.filter(g=>
-g.name.toLowerCase().includes(q)&&
-(p==="Hepsi"||g.platform===p)&&
-(genre==="Hepsi"||g.genre===genre)
-);
-
-if(!filtered.length){
-box.innerHTML='<div class="empty">Oyun bulunamadı 😕</div>';
-return;
-}
-
+const filtered=gamesData.filter(g=>g.name.toLowerCase().includes(q)&&(p==="Hepsi"||g.platform===p)&&(genre==="Hepsi"||g.genre===genre));
+if(!filtered.length){box.innerHTML='<div class="empty">Oyun bulunamadı 😕</div>';return;}
 filtered.forEach(g=>{
-const card=document.createElement("div");
-card.className="card";
-
-const cover=document.createElement("div");
-cover.className="cover";
-const emoji=document.createElement("span");
-emoji.textContent=g.emoji;
-cover.appendChild(emoji);
-
-const img=document.createElement("img");
-img.alt=g.name+" kapak resmi";
-img.style.display="none";
-cover.appendChild(img);
-loadImage(img,emoji,g);
-
-const info=document.createElement("div");
-info.className="info";
-const h=document.createElement("h3");
-h.textContent=g.name;
-const tag=document.createElement("span");
-tag.className="tag";
-tag.textContent=g.genre;
-const platform=document.createElement("span");
-platform.className="platform";
-platform.textContent=g.platform;
-const desc=document.createElement("p");
-desc.textContent=g.desc;
-
-const rating=document.createElement("div");
-rating.className="cardRating";
-const r=getRating(g.name);
-rating.textContent=r.count?"⭐ "+r.average.toFixed(1)+" / 5 ("+r.count+" puan)":"⭐ Henüz puan yok";
-
-info.append(h,tag,platform,desc,rating);
-card.append(cover,info);
-card.onclick=()=>openModal(g);
-box.appendChild(card);
+const card=document.createElement("div");card.className="card";
+const cover=document.createElement("div");cover.className="cover";
+const emoji=document.createElement("span");emoji.textContent=g.emoji;cover.appendChild(emoji);
+const img=document.createElement("img");img.alt=g.name+" kapak resmi";img.style.display="none";cover.appendChild(img);loadImage(img,emoji,g);
+const info=document.createElement("div");info.className="info";
+const h=document.createElement("h3");h.textContent=g.name;
+const tag=document.createElement("span");tag.className="tag";tag.textContent=g.genre;
+const platform=document.createElement("span");platform.className="platform";platform.textContent=g.platform;
+const desc=document.createElement("p");desc.textContent=g.desc;
+const rating=document.createElement("div");rating.className="cardRating";
+const r=getRating(g.name);rating.textContent=r.count?"⭐ "+r.average.toFixed(1)+" / 5 ("+r.count+" puan)":"⭐ Henüz puan yok";
+info.append(h,tag,platform,desc,rating);card.append(cover,info);
+card.onclick=()=>openModal(g);box.appendChild(card);
 });
 }
 
@@ -376,147 +246,69 @@ document.getElementById("detailDescription").textContent=g.desc;
 document.getElementById("detailHow").textContent=g.desc;
 document.getElementById("download").href=g.url;
 document.getElementById("detailEmoji").textContent=g.emoji;
-
 const img=document.getElementById("detailImage");
 const emoji=document.getElementById("detailEmoji");
-img.style.display="none";
-emoji.style.display="block";
+img.style.display="none";emoji.style.display="block";img.src="";
 img.onload=()=>{img.style.display="block";emoji.style.display="none"};
 img.onerror=()=>{img.style.display="none";emoji.style.display="block"};
-
 const src=imageUrl(g);
 if(src)img.src=src;
-else findGameImage(g).then(found=>{if(found)img.src=found});
-
-const items=[
-["🏢 Yapımcı",g.developer],
-["📅 Çıkış tarihi",g.release],
-["💰 Fiyat",g.price],
-["🌐 Oynanış",g.mode],
-["👥 Oyuncu sayısı",g.players],
-["💾 Oyun boyutu",g.size],
-["💻 Platform",g.system],
-["🎮 Oyun türü",g.genre]
-];
-
-const details=document.getElementById("details");
-details.innerHTML="";
-items.forEach(item=>{
-const div=document.createElement("div");
-div.className="detailItem";
-const small=document.createElement("small");
-small.textContent=item[0];
-const strong=document.createElement("strong");
-strong.textContent=item[1];
-div.append(small,strong);
-details.appendChild(div);
-});
-
-showRating();
-showComments();
+else findGameImage(g).then(found=>{if(found&&window.selectedGame===g.name)img.src=found;});
+const items=[["🏢 Yapımcı",g.developer],["📅 Çıkış tarihi",g.release],["💰 Fiyat",g.price],["🌐 Oynanış",g.mode],["👥 Oyuncu sayısı",g.players],["💾 Oyun boyutu",g.size],["💻 Platform",g.system],["🎮 Oyun türü",g.genre]];
+const details=document.getElementById("details");details.innerHTML="";
+items.forEach(item=>{const div=document.createElement("div");div.className="detailItem";const small=document.createElement("small");small.textContent=item[0];const strong=document.createElement("strong");strong.textContent=item[1];div.append(small,strong);details.appendChild(div);});
+showRating();showComments();
 }
 
-function closeModal(){
-document.getElementById("modal").classList.remove("open");
+function closeModal(){document.getElementById("modal").classList.remove("open");}
+function zoomImage(){
+const img=document.getElementById("detailImage");
+if(img.style.display==="none"||!img.src)return;
+document.getElementById("zoomedImage").src=img.src;
+document.getElementById("imageZoom").classList.add("open");
 }
+function closeZoom(){document.getElementById("imageZoom").classList.remove("open");}
 
 function showRating(){
-const box=document.getElementById("starButtons");
-box.innerHTML="";
+const box=document.getElementById("starButtons");box.innerHTML="";
 const ratings=JSON.parse(localStorage.getItem("oyunPuanlari")||"{}");
 const myRating=ratings[window.selectedGame+"_my"]||0;
-for(let i=1;i<=5;i++){
-const btn=document.createElement("button");
-btn.className="star"+(i<=myRating?" active":"");
-btn.textContent="★";
-btn.onclick=()=>rateGame(i);
-box.appendChild(btn);
-}
+for(let i=1;i<=5;i++){const btn=document.createElement("button");btn.className="star"+(i<=myRating?" active":"");btn.textContent="★";btn.onclick=()=>rateGame(i);box.appendChild(btn);}
 const r=getRating(window.selectedGame);
-document.getElementById("ratingText").textContent=
-r.count?"Ortalama: "+r.average.toFixed(1)+" / 5 • "+r.count+" puan":"Bu oyuna henüz puan verilmemiş.";
+document.getElementById("ratingText").textContent=r.count?"Ortalama: "+r.average.toFixed(1)+" / 5 • "+r.count+" puan":"Bu oyuna henüz puan verilmemiş.";
 }
 
 function rateGame(value){
 const ratings=JSON.parse(localStorage.getItem("oyunPuanlari")||"{}");
-const name=window.selectedGame;
-const old=ratings[name+"_my"]||0;
+const name=window.selectedGame;const old=ratings[name+"_my"]||0;
 if(!ratings[name])ratings[name]=[];
-if(old){
-const index=ratings[name].indexOf(old);
-if(index!==-1)ratings[name].splice(index,1);
-}
-ratings[name].push(value);
-ratings[name+"_my"]=value;
-localStorage.setItem("oyunPuanlari",JSON.stringify(ratings));
-showRating();
-showGames();
+if(old){const index=ratings[name].indexOf(old);if(index!==-1)ratings[name].splice(index,1);}
+ratings[name].push(value);ratings[name+"_my"]=value;
+localStorage.setItem("oyunPuanlari",JSON.stringify(ratings));showRating();showGames();
 }
 
 function showComments(){
-const box=document.getElementById("comments");
-box.innerHTML="";
+const box=document.getElementById("comments");box.innerHTML="";
 const data=JSON.parse(localStorage.getItem("oyunYorumlari")||"{}");
 const list=data[window.selectedGame]||[];
-if(!list.length){
-box.innerHTML='<p style="color:#8994b5">Henüz yorum yok. İlk yorumu sen yaz!</p>';
-}
-list.forEach(c=>{
-const d=document.createElement("div");
-d.className="comment";
-d.textContent="💬 "+c;
-box.appendChild(d);
-});
+if(!list.length)box.innerHTML='<p style="color:#8994b5">Henüz yorum yok. İlk yorumu sen yaz!</p>';
+list.forEach(c=>{const d=document.createElement("div");d.className="comment";d.textContent="💬 "+c;box.appendChild(d);});
 }
 
 function addComment(){
-const input=document.getElementById("commentInput");
-const value=input.value.trim();
-if(!value)return;
+const input=document.getElementById("commentInput");const value=input.value.trim();if(!value)return;
 const data=JSON.parse(localStorage.getItem("oyunYorumlari")||"{}");
 if(!data[window.selectedGame])data[window.selectedGame]=[];
 data[window.selectedGame].push(value);
-localStorage.setItem("oyunYorumlari",JSON.stringify(data));
-input.value="";
-showComments();
+localStorage.setItem("oyunYorumlari",JSON.stringify(data));input.value="";showComments();
 }
 
 document.getElementById("search").addEventListener("input",showGames);
 document.getElementById("platform").addEventListener("change",showGames);
 document.getElementById("genre").addEventListener("change",showGames);
-document.getElementById("modal").addEventListener("click",e=>{
-if(e.target.id==="modal")closeModal();
-});
-document.addEventListener("keydown",e=>{
-if(e.key==="Escape")closeModal();
-});
-
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal();closeZoom();}});
 showGames();
-</script>
-  <script>
-document.addEventListener("click", function(e) {
-  if (!e.target.matches(".game-card img")) return;
-
-  e.stopPropagation();
-
-  const overlay = document.createElement("div");
-  overlay.style.cssText = `
-    position:fixed; inset:0; background:rgba(0,0,0,.92);
-    display:flex; align-items:center; justify-content:center;
-    z-index:999999; cursor:zoom-out;
-  `;
-
-  const img = document.createElement("img");
-  img.src = e.target.src;
-  img.style.cssText = `
-    max-width:90%; max-height:90%; object-fit:contain;
-    border-radius:15px; box-shadow:0 0 30px #8b00ff;
-  `;
-
-  overlay.appendChild(img);
-  overlay.onclick = () => overlay.remove();
-  document.body.appendChild(overlay);
-});
 </script>
 </body>
 </html>
